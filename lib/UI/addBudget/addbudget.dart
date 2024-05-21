@@ -1,14 +1,14 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:caakl/UI/addBudget/addbudgetprovider.dart';
-import 'package:caakl/UI/items/model.dart';
-import 'package:caakl/UI/items/provider.dart';
+import 'package:ethrift/UI/addBudget/addbudgetprovider.dart';
+import 'package:ethrift/UI/items/model.dart';
+import 'package:ethrift/UI/items/provider.dart';
 import 'package:provider/provider.dart';
 import '../../utils/colors.dart';
 import '../budget/budget_provider.dart';
 
 class AddBudget extends StatefulWidget {
-  const AddBudget({Key? key, this.homePageItems}) : super(key: key);
+  const AddBudget({super.key, this.homePageItems});
   final ValueOfTextForm? homePageItems;
 
   @override

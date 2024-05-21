@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'LOGIN.dart';
 
 class Register extends StatelessWidget {
+  const Register({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -11,7 +13,7 @@ class Register extends StatelessWidget {
           leading: Container(
             alignment: Alignment.topLeft,
             child: IconButton(
-              padding: EdgeInsets.only(top: 70, left: 30),
+              padding: const EdgeInsets.only(top: 70, left: 30),
               icon: const Icon(Icons.arrow_back,
                   color: Colors.white), // Set arrow color to white
               onPressed: () {
@@ -21,7 +23,7 @@ class Register extends StatelessWidget {
           ),
           flexibleSpace: Container(
             // Tool Bar decoration
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [
                 Color(0xff7FECC2),
                 Color(0xff268A63),
@@ -43,8 +45,8 @@ class Register extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 90),
-                    child: Text(
+                    margin: const EdgeInsets.only(top: 90),
+                    child: const Text(
                       'Create Account!',
                       style: TextStyle(
                           color: Colors.white,
@@ -53,7 +55,7 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: Text(
+                    child: const Text(
                       'Let’s get you Registered!!',
                       style: TextStyle(
                           color: Colors.white,
@@ -68,8 +70,8 @@ class Register extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(15.0),
-            margin: EdgeInsets.only(top: 50),
+            padding: const EdgeInsets.all(15.0),
+            margin: const EdgeInsets.only(top: 50),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -113,7 +115,7 @@ class Register extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20.0))),
                   ),
                 ),
-                SizedBox(height: 25.0),
+                const SizedBox(height: 25.0),
                 SizedBox(
                   width: 320.0, // Button width
                   height: 51.0,
@@ -122,8 +124,8 @@ class Register extends StatelessWidget {
                       Navigator.pushNamed(context, '/Sign_in');
                     },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xff000000)),
-                    child: Text('Login',
+                        backgroundColor: const Color(0xff000000)),
+                    child: const Text('Register',
                         style:
                             TextStyle(color: Color(0xffffffff), fontSize: 20)),
                   ),
@@ -132,10 +134,12 @@ class Register extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   child: TextButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Sign_in()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Sign_in()));
                     },
-                    child: Text(
+                    child: const Text(
                       'Already have an account? Sign In.',
                       style: TextStyle(color: Color(0xff4364A4)),
                     ),

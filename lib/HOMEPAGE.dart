@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:caakl/UI/budget/budgetpage.dart';
+import 'package:ethrift/UI/budget/budgetpage.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,7 +19,8 @@ class _HomePageState extends State<HomePage> {
   final List<String> _titles = [
     'HOME',
     'CHATBOT',
-    'NOTIFICATION',
+    'NOTIFICATIONS',
+    'BILL REMINDER',
   ];
 
   void _onItemTapped(int index) {
@@ -54,7 +55,94 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text("Sawako"),
+              accountEmail: Text("Sawako@example.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('images/sawako.png'),
+              ),
+              decoration: BoxDecoration(
+                color: Color(0xff268A63),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("Settings"),
+              onTap: () {
+                // Handle settings tap
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text("Profile"),
+              onTap: () {
+                // Handle profile tap
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text("Budget Planner"),
+              onTap: () {
+                // Handle budget planner tap
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BudgetPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text("Expense Tracking"),
+              onTap: () {
+                // Handle expense tracking tap
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text("Inquiry"),
+              onTap: () {
+                // Handle inquiry tap
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text("Bill Reminder"),
+              onTap: () {
+                // Handle bill reminder tap
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BillReminder()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text("Share Expenses"),
+              onTap: () {
+                // Handle share expenses tap
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text("Category Manager"),
+              onTap: () {
+                // Handle category manager tap
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("Logout"),
+              onTap: () {
+                // Handle logout tap
+              },
+            ),
+          ],
+        ),
+      ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: [
@@ -69,6 +157,10 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),
             label: 'Notifications',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.alarm),
+            label: 'Bill Reminder',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -156,34 +248,6 @@ class HomeContent extends StatelessWidget {
                               ),
                             ],
                           ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        width: 400,
-                        child: Stack(
-                          alignment: Alignment.centerRight,
-                          children: [
-                            Image.asset('images/BUTTON3.png',
-                                fit: BoxFit.cover),
-                            Text(
-                              'Expense Tracker',
-                              style: TextStyle(
-                                color: Color(0xff000000),
-                                fontSize: 19,
-                                fontFamily: "Roboto",
-                              ),
-                            ),
-                          ],
                         ),
                       ),
                     ],
@@ -296,7 +360,7 @@ class BillReminder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Bill Reminder Page'),
+      child: Text('Bill Reminder'),
     );
   }
 }
@@ -305,61 +369,60 @@ class Notifications extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ListView(
-        padding: const EdgeInsets.all(8),
-        children: <Widget>[
-          Container(
-            height: 80,
-            color: Color(0xffF3F3F3),
-            child: const Center(child: Text('You have utilized 30 pesos.')),
-          ),
-          SizedBox(height: 5.0),
-          Container(
-            height: 80,
-            color: Color(0xffF3F3F3),
-            child: const Center(child: Text('You have utilized 100 pesos.')),
-          ),
-          SizedBox(height: 5.0),
-          Container(
-            height: 80,
-            color: Color(0xffF3F3F3),
-            child: const Center(child: Text('You have utilized 200 pesos.')),
-          ),
-          SizedBox(height: 5.0),
-          Container(
-            height: 80,
-            color: Color(0xffF3F3F3),
-            child: const Center(child: Text('You have utilized 150 pesos.')),
-          ),
-          SizedBox(height: 5.0),
-          Container(
-            height: 80,
-            color: Color(0xffF3F3F3),
-            child: const Center(child: Text('You have utilized 100 pesos.')),
-          ),
-          SizedBox(height: 5.0),
-          Container(
-            height: 80,
-            color: Color(0xffF3F3F3),
-            child: const Center(child: Text('You have utilized 100 pesos.')),
-          ),
-          SizedBox(height: 5.0),
-          Container(
-            height: 80,
-            color: Color(0xffF3F3F3),
-            child: const Center(
-                child: Text('You have exceeded your budget limit!')),
-          ),
-          SizedBox(height: 5.0),
-          Container(
-            height: 80,
-            color: Color(0xffF3F3F3),
-            child: const Center(
-                child: Text('You have utilized 50 pesos.',
-                    style: TextStyle(fontSize: 20))),
-          ),
-        ],
-      ),
-    );
+        child: ListView(
+      padding: const EdgeInsets.all(8),
+      children: <Widget>[
+        Container(
+          height: 80,
+          color: Color(0xffF3F3F3),
+          child: const Center(child: Text('You have utilized 30 pesos.')),
+        ),
+        SizedBox(height: 5.0),
+        Container(
+          height: 80,
+          color: Color(0xffF3F3F3),
+          child: const Center(child: Text('You have utilized 100 pesos.')),
+        ),
+        SizedBox(height: 5.0),
+        Container(
+          height: 80,
+          color: Color(0xffF3F3F3),
+          child: const Center(child: Text('You have utilized 200 pesos.')),
+        ),
+        SizedBox(height: 5.0),
+        Container(
+          height: 80,
+          color: Color(0xffF3F3F3),
+          child: const Center(child: Text('You have utilized 150 pesos.')),
+        ),
+        SizedBox(height: 5.0),
+        Container(
+          height: 80,
+          color: Color(0xffF3F3F3),
+          child: const Center(child: Text('You have utilized 100 pesos.')),
+        ),
+        SizedBox(height: 5.0),
+        Container(
+          height: 80,
+          color: Color(0xffF3F3F3),
+          child: const Center(child: Text('You have utilized 100 pesos.')),
+        ),
+        SizedBox(height: 5.0),
+        Container(
+          height: 80,
+          color: Color(0xffF3F3F3),
+          child:
+              const Center(child: Text('You have exceeded your budget limit!')),
+        ),
+        SizedBox(height: 5.0),
+        Container(
+          height: 80,
+          color: Color(0xffF3F3F3),
+          child: const Center(
+              child: Text('You have utilized 50 pesos.',
+                  style: TextStyle(fontSize: 20))),
+        )
+      ],
+    ));
   }
 }

@@ -1,22 +1,22 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:caakl/UI/budget/budget_model.dart';
-import 'package:caakl/UI/budget/budget_provider.dart';
+import 'package:ethrift/UI/budget/budget_model.dart';
+import 'package:ethrift/UI/budget/budget_provider.dart';
 import 'package:provider/provider.dart';
 import '../UI/items/provider.dart';
 import '../utils/colors.dart';
 
 class ListTileWidget extends StatefulWidget {
   const ListTileWidget({
-    Key? key,
+    super.key,
     required this.category,
     required this.icon,
     required this.isBudgeted,
     required this.spendAmount,
     this.remainingAmount,
     required this.id,
-  }) : super(key: key);
+  });
   final String category;
   final String icon;
   final bool isBudgeted;

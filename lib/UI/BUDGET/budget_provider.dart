@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:caakl/UI/items/model.dart';
+import 'package:ethrift/UI/items/model.dart';
 import 'budget_model.dart';
 
 class BudgetProvider extends ChangeNotifier {

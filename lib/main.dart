@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:caakl/UI/addBudget/addbudgetmodel.dart';
-import 'package:caakl/UI/budget/budget_model.dart';
-import 'package:caakl/UI/budget/budget_provider.dart';
-import 'package:caakl/UI/items/model.dart';
-import 'package:caakl/UI/items/provider.dart';
-import 'package:caakl/UI/addBudget/addbudgetprovider.dart';
+import 'package:ethrift/UI/addBudget/addbudgetmodel.dart';
+import 'package:ethrift/UI/budget/budget_model.dart';
+import 'package:ethrift/UI/budget/budget_provider.dart';
+import 'package:ethrift/UI/items/model.dart';
+import 'package:ethrift/UI/items/provider.dart';
+import 'package:ethrift/UI/addBudget/addbudgetprovider.dart';
 import 'LOGIN.dart';
 import 'REGISTRATION.dart';
 import 'HOMEPAGE.dart';
@@ -14,6 +14,7 @@ import 'HOMEPAGE.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
+
   if (!Hive.isAdapterRegistered(BudgetModelAdapter().typeId)) {
     Hive.registerAdapter(BudgetModelAdapter());
   }
@@ -23,11 +24,12 @@ Future<void> main() async {
   if (!Hive.isAdapterRegistered(ValueOfTextFormAdapter().typeId)) {
     Hive.registerAdapter(ValueOfTextFormAdapter());
   }
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +40,12 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AddBudgetProvider()),
       ],
       child: MaterialApp(
-        title: 'COVER PAGE', // Application name
+        title: 'COVER PAGE',
         home: const MyHomePage(title: 'Flutter Demo Home Page'),
         initialRoute: '/',
         routes: {
-          '/Sign_in': (context) => Sign_in(),
-          '/Register': (context) => Register(),
+          '/Sign_in': (context) => const Sign_in(),
+          '/Register': (context) => const Register(),
           '/HomePage': (context) => HomePage(),
           '/Notification': (context) => HomePage(),
         },
@@ -77,7 +79,10 @@ class MyHomePage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30)),
             ),
             onPressed: () {
-              Navigator.pushNamed(context, '/Sign_in');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Sign_in()),
+              );
             },
             child: const SizedBox(
               width: 150.0,

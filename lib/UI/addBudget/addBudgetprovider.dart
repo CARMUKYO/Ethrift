@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:caakl/UI/addBudget/addbudgetmodel.dart';
+import 'package:ethrift/UI/addBudget/addbudgetmodel.dart';
 
 class AddBudgetProvider extends ChangeNotifier {
   List<AddBudgetModel> expenseContainerList = [

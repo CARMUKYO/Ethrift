@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:caakl/widget/listtilebudgetwidget.dart';
+import 'package:ethrift/widget/listtilebudgetwidget.dart';
 import 'package:provider/provider.dart';
 import '../../utils/colors.dart';
 import 'budget_model.dart';
@@ -13,7 +13,7 @@ Description: budget planner page ui allows to set budgets based on categories. A
 
 // Define a StatefulWidget for the BudgetPage
 class BudgetPage extends StatefulWidget {
-  const BudgetPage({Key? key}) : super(key: key);
+  const BudgetPage({super.key});
 
   @override
   State<BudgetPage> createState() => _BudgetPageState();
@@ -68,7 +68,7 @@ class _BudgetPageState extends State<BudgetPage> {
                             ),
                           ),
                         ),
-                        Center(
+                        const Center(
                           child: Text(
                             "Budget Not Set For This Month",
                             style: TextStyle(
@@ -83,7 +83,7 @@ class _BudgetPageState extends State<BudgetPage> {
 
                   // Display budget information if available
                   : Padding(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                           top: 10.0), // Adjust the top margin as needed
                       child: Center(
                         child: FractionallySizedBox(
@@ -101,7 +101,7 @@ class _BudgetPageState extends State<BudgetPage> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
+                                      const Text(
                                         "Total Budget",
                                         style: TextStyle(
                                           color: Colors.black,
@@ -110,7 +110,7 @@ class _BudgetPageState extends State<BudgetPage> {
                                       ),
                                       Text(
                                         "\u{20B1} ${budgetProvider.totalBudget}",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Colors.black,
                                         ),
                                       ),
@@ -121,7 +121,7 @@ class _BudgetPageState extends State<BudgetPage> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "Total Spent",
                                       style: TextStyle(
                                         color: Colors.black,
@@ -138,7 +138,7 @@ class _BudgetPageState extends State<BudgetPage> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "Total Remaining",
                                       style: TextStyle(
                                         color: Colors.black,
@@ -147,7 +147,8 @@ class _BudgetPageState extends State<BudgetPage> {
                                     ),
                                     Text(
                                       "\u{20B1} ${budgetProvider.totalRemaining}",
-                                      style: TextStyle(color: Colors.teal),
+                                      style:
+                                          const TextStyle(color: Colors.teal),
                                     ),
                                   ],
                                 ),
@@ -164,7 +165,7 @@ class _BudgetPageState extends State<BudgetPage> {
               budgetProvider.budgetedList.isEmpty
                   ? const Text("")
                   : Padding(
-                      padding: EdgeInsets.only(left: 16),
+                      padding: const EdgeInsets.only(left: 16),
                       child: Text(
                         "BUDGETED CATEGORIES:",
                         style: TextStyle(
@@ -199,7 +200,7 @@ class _BudgetPageState extends State<BudgetPage> {
               ),
               // Display non-budgeted categories using ListView
               Padding(
-                padding: EdgeInsets.only(left: 16),
+                padding: const EdgeInsets.only(left: 16),
                 child: Text(
                   "NOT BUDGETED THIS MONTH:",
                   style: TextStyle(
