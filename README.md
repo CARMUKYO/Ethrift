@@ -1,4 +1,4 @@
-# caakl
+# Ethrift
 
 A new Flutter project.
 
